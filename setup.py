@@ -1,5 +1,4 @@
-from setuptools import setup, find_packages
-import os
+from distutils.core import setup
 
 
 setup(name='vault-gateway-client',
@@ -9,7 +8,7 @@ setup(name='vault-gateway-client',
       author='Daniel Jensen',
       author_email='jensendw@gmail.com',
       license='Apache',
-      packages=find_packages(),
+      packages=['vault_gatekeeper_client'],
       install_requires=[
           'hvac',
           'requests'
