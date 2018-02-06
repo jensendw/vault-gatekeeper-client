@@ -4,3 +4,4 @@ hvac==0.3.0
 autologging==1.1.0
 Faker==0.8.10
 pytest==3.4.0
+mock
