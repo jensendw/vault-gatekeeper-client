@@ -1,6 +1,12 @@
 language: python
 python:
-  - "3.6"
+- '3.6'
 script:
-  - pytest
-  - tox
+- tox
+deploy:
+  provider: pypi
+  user: "jensendw"
+  password:
+    secure: RKFzeimxKK7LDLeKkbO3cRFAwGwXK3MZJfMEyrHVDqc5bW4tWtqQl2Z44oGNkQ5bFSPC/DOUK7l6A2URLaWVEehUH4ndXWWFHIVjJbHS9HNm0Kp303N2h8XKQZuHYzDPEWhpAIfZN167+lUnIKAwqJrmunG1JKWp2BUFyQnW2bEWGW41Ni6s0OuNbhR6uFIcIZ1HdAm3pPvcW/TKgRpohaAYb1gZ3i6acmNAQNZmEwqJehz4SdwXkOdIqlxFhnjYdPUXhpkeS9JujnbBh8BZHYUPiixF5Uzivdof1yMujf3u5B4BAYZL9eMEWoXuBQByugC7srJApBFKeapTELREsEij/ZV4U9Ato7tGpInIBTgVP0NrTS9YrpAsrvib8emzQbHY+H0T1Fgo2Tnp6Xc3oAvhonHITu6p4wlo4Bf8i/XkZ71m3NQ1NxBDfcnaz+bJgloPiWnqN33hfYbqHOgzC6jGwmHUL2XE/r2OlssMMaW/UDYDqIJz7gNC2v5cXkYYMpUHBobsz92F5xEhcvr8793SZ91dLhX1o5uyHaaPKxaPVhuaPCs4udxIxo/LSSbtVlfvOSfbMz7m7TG75s6c5p4KztNEe/T6ggAomhtUWdGhgeGZKXHvsAGcf/KI2cp0+1UTslRQ9vfyx9t1kZCRcxSgitRrXCWKgU2YybqS7xU=
+  on:
+    tags: true
