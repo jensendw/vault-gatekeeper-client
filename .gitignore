@@ -1,0 +1,3 @@
+.tox
+__pycache__
+vault_gateway_client.egg-info
