@@ -1,6 +1,9 @@
 import unittest
-from unittest.mock import patch
-from unittest.mock import MagicMock
+#have to do this for py27 compatibility
+try:
+    from unittest.mock import patch
+except ImportError:
+    from mock import patch
 from vault_gatekeeper import *
 
 class VaultGatekeeperTestCase(unittest.TestCase):
