@@ -2,7 +2,7 @@ from distutils.core import setup
 
 
 setup(name='vault-gatekeeper-client',
-      version='0.0.7',
+      version='0.0.9',
       description='vault-gatekeeper-client for interacting with vault-gatekeeper-mesos service',
       url='https://github.com/jensendw/vault-gatekeeper-client',
       author='Daniel Jensen',
