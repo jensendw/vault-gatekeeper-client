@@ -67,14 +67,17 @@ class VaultGatekeeper:
 
         return values_dict
 
-    def Client(self):
+    @property
+    def secrets(self):
         """Wrapper function to invoke everything"""
 
         self.vault_client = self.vault_connection()
         self.temp_vault_token = self.request_temp_vault_token()
         self.vault_token = self.unwrap_vault_token()
         self.secret_keys = self.get_secret_keys()
-        self.secrets = self.build_secrets_dict()
+
+        if self._secrets is None:
+            return self.build_secrets_dict()
 
 
     def __init__(self,
@@ -94,3 +97,4 @@ class VaultGatekeeper:
         self.vault_addr = vault_addr
         self.gatekeeper_addr = gatekeeper_addr
         self.secret_path = secret_path
+        self._secrets = None

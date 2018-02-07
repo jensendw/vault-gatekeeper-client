@@ -1,12 +1,11 @@
 import unittest
 import json
+from vault_gatekeeper_client import VaultGatekeeper
 #have to do this for py27 compatibility
 try:
     from unittest.mock import patch
-    from vault_gatekeeper_client.vault_gatekeeper_client import *
 except ImportError:
     from mock import patch
-    from vault_gatekeeper_client import VaultGatekeeper
 
 
 

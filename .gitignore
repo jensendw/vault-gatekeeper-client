@@ -4,3 +4,5 @@ vault_gateway_client.egg-info
 *.pyc
 build
 dist
+.pytest*
+MANIFEST
