@@ -4,8 +4,7 @@ import hvac
 from autologging import logged, traced
 
 @logged
-@traced
-class VaultGatekeeper:
+class VaultGatekeeperClient:
     def request_temp_vault_token(self):
         """Requests temporary vault token from vault-gatekeeper-mesos service"""
         data = {

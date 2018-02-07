@@ -1,6 +1,6 @@
 import unittest
 import json
-from vault_gatekeeper_client import VaultGatekeeper
+from vault_gatekeeper_client import VaultGatekeeperClient
 #have to do this for py27 compatibility
 try:
     from unittest.mock import patch
@@ -9,17 +9,17 @@ except ImportError:
 
 
 
-class VaultGatekeeperTestCase(unittest.TestCase):
+class VaultGatekeeperClientTestCase(unittest.TestCase):
     """Test cases for the VaultGatekeeper class"""
 
     @patch('requests.post')
     def test_request_temp_token(self, mock_requests):
         """Tests request_temp_token function"""
         mock_requests.return_value.text = json.dumps({"token": "abc123"})
-        gatekeeper = VaultGatekeeper(task_id='test_app_id',
-                                     gatekeeper_addr='https://vault-gatekeeper',
-                                     vault_addr='https://vault-server:8200',
-                                     secret_path='secret/test')
+        gatekeeper = VaultGatekeeperClient(task_id='test_app_id',
+                                           gatekeeper_addr='https://vault-gatekeeper',
+                                           vault_addr='https://vault-server:8200',
+                                           secret_path='secret/test')
 
         self.assertEqual(gatekeeper.request_temp_vault_token(), 'abc123')
 
@@ -34,10 +34,10 @@ class VaultGatekeeperTestCase(unittest.TestCase):
                                           }
                                      }
 
-        gatekeeper = VaultGatekeeper(task_id='test_app_id',
-                                     gatekeeper_addr='https://vault-gatekeeper',
-                                     vault_addr='https://vault-server:8200',
-                                     secret_path='secret/test')
+        gatekeeper = VaultGatekeeperClient(task_id='test_app_id',
+                                           gatekeeper_addr='https://vault-gatekeeper',
+                                           vault_addr='https://vault-server:8200',
+                                           secret_path='secret/test')
         gatekeeper.temp_vault_token = "temp_vault_token123"
 
         self.assertEqual(gatekeeper.unwrap_vault_token(), '3b243bd0-db25-b0d3-xfxf-0a01b88cdf75')
@@ -47,10 +47,10 @@ class VaultGatekeeperTestCase(unittest.TestCase):
         """Tests get_secret_keys function"""
         mock_hvac_client_list.return_value = {'data': {'keys': ['key1', 'key2', 'key3']}}
 
-        gatekeeper = VaultGatekeeper(task_id='test_app_id',
-                                     gatekeeper_addr='https://vault-gatekeeper',
-                                     vault_addr='https://vault-server:8200',
-                                     secret_path='secret/test')
+        gatekeeper = VaultGatekeeperClient(task_id='test_app_id',
+                                           gatekeeper_addr='https://vault-gatekeeper',
+                                           vault_addr='https://vault-server:8200',
+                                           secret_path='secret/test')
         gatekeeper.vault_token = "temp_vault_token123"
         self.assertEqual(gatekeeper.get_secret_keys(), ['key1', 'key2', 'key3'])
 
@@ -59,10 +59,10 @@ class VaultGatekeeperTestCase(unittest.TestCase):
         """Tests build_secrets_dict function"""
         mock_hvac_client_read.return_value = {'data': {'key1':'data1', 'key2':'data2'}}
 
-        gatekeeper = VaultGatekeeper(task_id='test_app_id',
-                                     gatekeeper_addr='https://vault-gatekeeper',
-                                     vault_addr='https://vault-server:8200',
-                                     secret_path='secret/test')
+        gatekeeper = VaultGatekeeperClient(task_id='test_app_id',
+                                           gatekeeper_addr='https://vault-gatekeeper',
+                                           vault_addr='https://vault-server:8200',
+                                           secret_path='secret/test')
         gatekeeper.vault_token = "temp_vault_token123"
         gatekeeper.secret_keys = ['key1']
 
