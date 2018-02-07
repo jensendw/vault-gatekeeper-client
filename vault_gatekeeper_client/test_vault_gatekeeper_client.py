@@ -4,7 +4,8 @@ try:
     from unittest.mock import patch
 except ImportError:
     from mock import patch
-from vault_gatekeeper_client import *
+
+from vault_gatekeeper_client.vault_gatekeeper_client import *
 
 class VaultGatekeeperTestCase(unittest.TestCase):
     """Test cases for the VaultGatekeeper class"""
