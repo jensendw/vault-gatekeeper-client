@@ -2,7 +2,7 @@ from distutils.core import setup
 
 
 setup(name='vault-gatekeeper-client',
-      version='0.0.9',
+      version='0.0.10',
       description='vault-gatekeeper-client for interacting with vault-gatekeeper-mesos service',
       url='https://github.com/jensendw/vault-gatekeeper-client',
       author='Daniel Jensen',
@@ -11,7 +11,7 @@ setup(name='vault-gatekeeper-client',
       packages=['vault_gatekeeper_client'],
       install_requires=[
           'hvac',
-          'requests'
+          'requests',
           'autologging'
       ],
       zip_safe=False)
