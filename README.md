@@ -9,7 +9,7 @@ pip install vault-gatekeeper-client
 ```
 
 ```python
-from vault-gatekeeper-client import VaultGatekeeperClient
+from vault_gatekeeper_client import VaultGatekeeperClient
 
 gatekeeper = VaultGatekeeperClient(task_id='marathon_app_id',
                                      gatekeeper_addr='https://my-vault-gatekeeper',
