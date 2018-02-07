@@ -12,5 +12,6 @@ setup(name='vault-gatekeeper-client',
       install_requires=[
           'hvac',
           'requests'
+          'autologging'
       ],
       zip_safe=False)
