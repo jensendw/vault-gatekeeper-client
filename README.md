@@ -35,6 +35,8 @@ Will return
 {'foo': {'key1': 'value1', 'key2': 'value2'}, 'bar': {'key1': 'value1', 'key2': 'value2'}}
 ```
 
+You can find an example app at https://github.com/jensendw/vault-gatekeeper-client-example-app  along with deployment instructions
+
 ## Contributing
 
 1. Fork it ( https://github.com/jensendw/vault-gatekeeper-client )
@@ -42,3 +44,12 @@ Will return
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+### Run Tests
+
+Tox will test compatibility for all python versions
+
+```shell
+pip install -r requirements.txt
+tox
+```
